@@ -1,0 +1,21 @@
+.login-nav {
+    @include flex();
+
+    @include wh(100%);
+    padding: 15px 0;
+    @include bb();
+
+    >li {
+        @include wh(189px, auto, center);
+        @include font($color, 20px, 1);
+        @include cur;
+
+        &:first-child {
+            @include border(1px, 0, right)
+        }
+
+        &.active {
+            color: $default-color;
+        }
+    }
+}

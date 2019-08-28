@@ -1,0 +1,74 @@
+//加载图片 url 为全路径
+
+@mixin img($url, $size:cover, $repeat:no-repeat) {
+    background-image: url($url);
+    background-repeat: $repeat;
+    background-size: $size;
+}
+
+//下边框
+@mixin bb() {
+    // 下
+    border-bottom: 1px solid $border-color;
+}
+
+//边框圆角
+@mixin border($width:1px, $radius:0, $angle:0) {
+
+    $border: $width solid $border-color;
+
+    @if $angle !=0 {
+        border-#{$angle}: $border;
+    }
+
+    @else {
+        border: $border;
+    }
+
+    @if $radius>0 {
+        @include radius($radius);
+    }
+}
+
+//圆角
+@mixin radius($value:10px) {
+    border-radius: $value;
+}
+
+//布局
+@mixin flex($row:row, $justify:flex-start, $items:center, $grow:0, $shrink:0) {
+    // 开启布局
+    display: flex;
+    flex-grow: $grow;
+    flex-shrink: $shrink;
+    flex-direction: $row;
+    justify-content: $justify;
+    align-items: $items;
+}
+
+//默认字体
+@mixin font($color:$color, $size:$f14, $weight:0) {
+    font-size: $size;
+    color: $color;
+
+    @if $weight>0 {
+        font-weight: bold;
+    }
+}
+
+//手势
+@mixin cur {
+    cursor: pointer
+}
+
+@mixin wh($w, $h:0, $item:0) {
+    width: $w;
+
+    @if $h !=0 {
+        height: $h;
+    }
+
+    @if $item !=0 {
+        text-align: $item;
+    }
+}

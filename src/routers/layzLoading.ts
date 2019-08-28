@@ -1,0 +1,1 @@
+export  const layzLoading = (path: string) => () => import(`@/views/${path}.vue`);

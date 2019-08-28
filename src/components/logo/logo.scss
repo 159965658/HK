@@ -1,0 +1,11 @@
+.logo {
+
+    >.f-title {
+        @include font(#E89927);
+        text-align: right;
+    }
+
+    >.title {
+        @include font($default-color, 22px, 1)
+    }
+}

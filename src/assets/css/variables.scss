@@ -1,0 +1,25 @@
+/* 改变主题色变量 */
+$--color-primary: #1ABC9C;
+
+/* 改变 icon 字体路径变量，必需 */
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+
+@import "~element-ui/packages/theme-chalk/src/index";
+
+
+$default-color:$--color-primary;
+$border-color:#E4E4E4; // 边框默认颜色
+$min-width:1200px; //最小宽度
+$f14:14px; //默认字体大小
+
+$color:#666; // 默认字体颜色 
+
+@import './mixins';
+@import './common.scss'
+// @function b-b($args) {
+//     //下划线
+//     @return 
+// }
+// @mixin font-title($color) {}
+
+//默认字体
