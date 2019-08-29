@@ -1,6 +1,17 @@
- 
-
  .main-con {
      width: $min-width;
      margin: 0 auto;
+ }
+
+
+ button {
+
+     &[type=button],
+     span {
+         letter-spacing: 5px;
+     }
+
+     &.btn-w {
+         width: 100%;
+     }
  }

@@ -27,15 +27,22 @@ module.exports = {
     integrity: false,
     // 反向代理
     devServer: {
-        // devServer: {
-        //     proxy: {
-        //       '/api': {
-        //         target: '1',
-        //         ws: true,
-        //         changeOrigin: true
-        //       }
-        //     }
-        // }
+        open: true,
+        host: '0.0.0.0',
+        // port: 8080,
+        https: false,
+        // hotOnly: false,
+
+        proxy: { // 设置代理
+            '/api': {
+                target: 'http://218.62.64.24:19999/smp',
+                ws: true,
+                changeOrigin: true,
+                pathRewrite: {
+                    '^/api': '/'
+                }
+            }
+        }
     }
     //css
     , css: {
