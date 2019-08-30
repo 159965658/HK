@@ -1,4 +1,3 @@
-import { Component } from 'vue';
 
 // 菜单.Data 参数类型
 interface INavType {

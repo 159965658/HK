@@ -6,7 +6,7 @@
   </div>
 </template>
 <script lang="ts">
-import { Vue, Component } from "vue-property-decorator";
+import { Component, Vue } from "vue-property-decorator";
 // import AppLogo from "@/components/logo";
 import { Footer } from "@/components/index";
 @Component({

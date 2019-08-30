@@ -39,12 +39,15 @@ interface IFromModel {
 interface ILoginRes {
   data: string;
 }
-import { Vue, Component } from "vue-property-decorator";
+import { Component, Vue } from "vue-property-decorator";
 import { Icon } from "@/components/";
 import Footer from "./footer.vue";
 import { PhoneRules, PwdRules } from "@/validators/";
 // import { HTTP } from "@/utils/request";
 import { ApiGetUser } from "@/api/login";
+import { EnumHttp } from "../../../enum";
+import { UserInfo } from "@/types/user/";
+import { UserState } from "@/store/modules/User";
 @Component({
   components: {
     Icon,
@@ -62,11 +65,15 @@ export default class LoginForm extends Vue {
     phone: PhoneRules,
     pwd: PwdRules
   };
+  get token() {
+    return UserState.token;
+  }
   /**
    * submitForm
    * 提交表单
    */
   public submitForm(formName: string) {
+    console.log(this.token);
     const loginForm: HTMLFormElement = this.$refs[formName] as HTMLFormElement;
     loginForm.validate(async (valid: any) => {
       if (valid) {
@@ -76,13 +83,21 @@ export default class LoginForm extends Vue {
           mobile: phone,
           password: pwd
         });
-        console.log(res);
+        if (res.status.code !== EnumHttp.success) {
+          this.$message.error("用户名或者密码错误");
+          return false;
+        }
         // HTTP.request({ url: loginUrl.login });
       } else {
         return false;
       }
     });
   }
+  /**
+   * LoginOk
+   * 登录成功
+   */
+  public LoginOk(user: UserInfo) {}
 }
 </script>
 

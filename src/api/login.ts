@@ -15,7 +15,7 @@ const Login: IApiResBase = { login: 'login', login1: 'login' }
 export function ApiGetUser<T>(params: IApiLogin) {
     const url = '/login/pwd'
     // HTTP.queue[url] = false
-    return axios.get<ResponseBase<T>>(url, { params })
+    return axios.post<ResponseBase<T>>(url, params)
         .then(res => res.data)
     // tslint:disable-next-line: no-console
     // .catch(err => { console.error(err); return { code: 1000, message: err } })
